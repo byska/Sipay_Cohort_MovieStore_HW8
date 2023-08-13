@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sipay_Cohort_MovieStore.Api", "Sipay_Cohort_MovieStore.Api\Sipay_Cohort_MovieStore.Api.csproj", "{8FD73413-4EB4-4283-91FC-20711D5F5ABC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sipay_Cohort_MovieStore.Entities", "Sipay_Cohort_MovieStore.Entities\Sipay_Cohort_MovieStore.Entities.csproj", "{85E061FD-F78F-4C3A-BEA7-A453A27036B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sipay_Cohort_MovieStore.EntitiesConfiguration", "Sipay_Cohort_MovieStore.EntitiesConfiguration\Sipay_Cohort_MovieStore.EntitiesConfiguration.csproj", "{FEDBC392-DB2C-4498-B787-01C9C6B25304}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sipay_Cohort_MovieStore.Business", "Sipay_Cohort_MovieStore.Business\Sipay_Cohort_MovieStore.Business.csproj", "{D9ED83F2-FD8D-414B-9411-19EFA4B397BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sipay_Cohort_MovieStore.Dtos", "Sipay_Cohort_MovieStore.Dtos\Sipay_Cohort_MovieStore.Dtos.csproj", "{149813C3-5855-4A03-8515-A580C6334443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sipay_Cohort_MovieStore.Core", "Sipay_Cohort_MovieStore.Core\Sipay_Cohort_MovieStore.Core.csproj", "{80633D98-343A-4591-AED0-1A09C12111FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sipay_Cohort_MovieStore.DataAccess", "Sipay_Cohort_MovieStore.DataAccess\Sipay_Cohort_MovieStore.DataAccess.csproj", "{1A67AB84-86E5-4573-8F01-DB6074DAE171}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FD73413-4EB4-4283-91FC-20711D5F5ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FD73413-4EB4-4283-91FC-20711D5F5ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FD73413-4EB4-4283-91FC-20711D5F5ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FD73413-4EB4-4283-91FC-20711D5F5ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85E061FD-F78F-4C3A-BEA7-A453A27036B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85E061FD-F78F-4C3A-BEA7-A453A27036B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85E061FD-F78F-4C3A-BEA7-A453A27036B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85E061FD-F78F-4C3A-BEA7-A453A27036B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEDBC392-DB2C-4498-B787-01C9C6B25304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDBC392-DB2C-4498-B787-01C9C6B25304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDBC392-DB2C-4498-B787-01C9C6B25304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDBC392-DB2C-4498-B787-01C9C6B25304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9ED83F2-FD8D-414B-9411-19EFA4B397BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9ED83F2-FD8D-414B-9411-19EFA4B397BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9ED83F2-FD8D-414B-9411-19EFA4B397BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9ED83F2-FD8D-414B-9411-19EFA4B397BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{149813C3-5855-4A03-8515-A580C6334443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149813C3-5855-4A03-8515-A580C6334443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149813C3-5855-4A03-8515-A580C6334443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149813C3-5855-4A03-8515-A580C6334443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80633D98-343A-4591-AED0-1A09C12111FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80633D98-343A-4591-AED0-1A09C12111FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80633D98-343A-4591-AED0-1A09C12111FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80633D98-343A-4591-AED0-1A09C12111FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A67AB84-86E5-4573-8F01-DB6074DAE171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A67AB84-86E5-4573-8F01-DB6074DAE171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A67AB84-86E5-4573-8F01-DB6074DAE171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A67AB84-86E5-4573-8F01-DB6074DAE171}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7AF0A77-B6EB-472B-B3C3-185A282ACC6F}
+	EndGlobalSection
+EndGlobal
