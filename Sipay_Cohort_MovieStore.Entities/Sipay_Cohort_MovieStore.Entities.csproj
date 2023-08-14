@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sipay_Cohort_MovieStore.Core\Sipay_Cohort_MovieStore.Core.csproj" />
+  </ItemGroup>
+
 </Project>

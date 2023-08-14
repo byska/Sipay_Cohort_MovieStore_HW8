@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sipay_Cohort_MovieStore.Entities.Enums
+namespace Sipay_Cohort_MovieStore.Business.Services.Logger
 {
-    public enum Genre
+    public interface ILoggerService
     {
-        romantic = 1,
-        action,
-        sciencefiction
+        void Write(string message);
     }
 }

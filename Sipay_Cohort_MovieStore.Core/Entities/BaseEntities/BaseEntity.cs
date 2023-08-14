@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sipay_Cohort_MovieStore.Core.Entities.Interfaces;
 
 namespace Sipay_Cohort_MovieStore.Core.Entities.BaseEntities
 {
-    public class BaseEntity
+    public class BaseEntity :IEntity
     {
         public int Id { get; set; }
         public string? ModifiedBy { get; set; }

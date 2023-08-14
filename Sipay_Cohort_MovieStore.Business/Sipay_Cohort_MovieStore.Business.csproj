@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sipay_Cohort_MovieStore.DataAccess\Sipay_Cohort_MovieStore.DataAccess.csproj" />
+    <ProjectReference Include="..\Sipay_Cohort_MovieStore.Dtos\Sipay_Cohort_MovieStore.Dtos.csproj" />
+    <ProjectReference Include="..\Sipay_Cohort_MovieStore.Entities\Sipay_Cohort_MovieStore.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
