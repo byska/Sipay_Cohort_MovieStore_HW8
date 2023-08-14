@@ -9,17 +9,24 @@ using System.Threading.Tasks;
 
 namespace Sipay_Cohort_MovieStore.DataAccess.Context
 {
-    public class MovieStoreDbContext :DbContext
+    public class MovieStoreDbContext :DbContext,IMovieStoreDbContext
     {
         public MovieStoreDbContext(DbContextOptions<MovieStoreDbContext> options) : base(options)
         {
 
         }
+
         public DbSet<Actor> Actors { get; set; }
+        public DbSet<MovieActor> MovieActors { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Director> Directors { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Purchased> Purchaseds { get; set; }
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ActorConfiguration());
