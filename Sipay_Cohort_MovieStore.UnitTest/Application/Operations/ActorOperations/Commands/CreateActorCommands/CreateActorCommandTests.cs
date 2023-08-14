@@ -21,6 +21,5 @@ namespace Sipay_Cohort_MovieStore.UnitTest.Application.Operations.ActorOperation
             _dbContext = testFixture.context;
             _mapper = testFixture.Mapper;
         }
-       
     }
 }
