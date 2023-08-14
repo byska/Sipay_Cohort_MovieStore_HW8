@@ -14,6 +14,7 @@ namespace Sipay_Cohort_MovieStore.Business.Services.Generic
         Task<ApiResponse<bool>> Add(TRequest entity);
         ApiResponse<TResponse> GetById(int id);
         Task<ApiResponse<List<TResponse>>> GetActive();
+        Task<ApiResponse<List<TResponse>>> GetAllWithParameters(Expression<Func<TEntity, object>> include, params Expression<Func<TEntity, bool>>[] exps);
         ApiResponse<bool> Remove(TEntity entity);
         ApiResponse<bool> Remove(int id);
         ApiResponse<bool> Update(TRequest entity, int id);

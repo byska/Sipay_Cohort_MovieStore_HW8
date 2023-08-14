@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Sipay_Cohort_MovieStore.DataAccess.UnitOfWork;
+using FluentValidation;
 
 namespace Sipay_Cohort_MovieStore.Business.Services.Actor
 {
     public class ActorService : GenericService<ActorModel.Actor, ActorRequest, ActorResponse>,IActorService
     {
-        public ActorService(IUow uow, IMapper mapper) : base(uow, mapper)
+        public ActorService(IUow uow, IMapper mapper,IValidator<ActorRequest> validator) : base(uow, mapper,validator)
         {
         }
     }

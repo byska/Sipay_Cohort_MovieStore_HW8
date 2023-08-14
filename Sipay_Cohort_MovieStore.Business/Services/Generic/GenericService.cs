@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Sipay_Cohort_MovieStore.Core.Entities.BaseEntities;
 using Sipay_Cohort_MovieStore.Core.Utilities.Response;
 using Sipay_Cohort_MovieStore.DataAccess.UnitOfWork;
@@ -15,10 +16,12 @@ namespace Sipay_Cohort_MovieStore.Business.Services.Generic
     {
         private readonly IUow _uow;
         private readonly IMapper _mapper;
-        public GenericService(IUow uow, IMapper mapper)
+        private readonly IValidator<TRequest> _validator;    
+        public GenericService(IUow uow, IMapper mapper,IValidator<TRequest> validator)
         {
             _uow = uow;
             _mapper = mapper;
+            _validator = validator;
         }
         public virtual async Task<ApiResponse<bool>> Activate(int id)
         {
@@ -30,13 +33,18 @@ namespace Sipay_Cohort_MovieStore.Business.Services.Generic
 
         public virtual async Task<ApiResponse<bool>> Add(TRequest request)
         {
-            var entity = _mapper.Map<TRequest, TEntity>(request);
-            entity.CreatedDate = DateTime.Now;
-            entity.CreatedBy = "admin";
+            var result = _validator.Validate(request);
+            if (result.IsValid)
+            {
+                var entity = _mapper.Map<TRequest, TEntity>(request);
+                entity.CreatedDate = DateTime.Now;
+                entity.CreatedBy = "admin";
 
-            var result = await _uow.GetRepository<TEntity>().Add(entity);
-            _uow.Complete();
-            return new ApiResponse<bool>(result);
+                var response = await _uow.GetRepository<TEntity>().Add(entity);
+                _uow.Complete();
+                return new ApiResponse<bool>(response);
+            }
+            return new ApiResponse<bool>(false);
         }
 
         public virtual ApiResponse<TResponse> GetById(int id)
@@ -51,6 +59,12 @@ namespace Sipay_Cohort_MovieStore.Business.Services.Generic
             List<TEntity> entities = await _uow.GetRepository<TEntity>().GetActive();
             List<TResponse> responses = _mapper.Map<List<TEntity>, List<TResponse>>(entities);
             return new ApiResponse<List<TResponse>>(responses);
+        }
+        public virtual async Task<ApiResponse<List<TResponse>>> GetAllWithParameters(Expression<Func<TEntity, object>> include, params Expression<Func<TEntity, bool>>[] exps)
+        {
+            var result = await _uow.GetRepository<TEntity>().GetAllByParametersAsync(include, exps);
+            var response = _mapper.Map<List<TEntity>, List<TResponse>>(result.ToList());
+            return new ApiResponse<List<TResponse>>(response);
         }
 
         public virtual ApiResponse<bool> Remove(TEntity entity)
@@ -70,18 +84,22 @@ namespace Sipay_Cohort_MovieStore.Business.Services.Generic
 
         public virtual ApiResponse<bool> Update(TRequest entity, int id)
         {
-
-            var user = _uow.GetRepository<TEntity>().GetByID(id);
-            if (user == null)
+            var result = _validator.Validate(entity);
+            if (result.IsValid)
             {
-                return new ApiResponse<bool>("Record not found!");
-            }
+                var user = _uow.GetRepository<TEntity>().GetByID(id);
+                if (user == null)
+                {
+                    return new ApiResponse<bool>("Record not found!");
+                }
 
-            var update = _mapper.Map<TRequest, TEntity>(entity);
-            update.CreatedBy = "admin";
-            var result = _uow.GetRepository<TEntity>().Update(update);
-            _uow.Complete();
-            return new ApiResponse<bool>(result);
+                var update = _mapper.Map<TRequest, TEntity>(entity);
+                update.CreatedBy = "admin";
+                var response = _uow.GetRepository<TEntity>().Update(update);
+                _uow.Complete();
+                return new ApiResponse<bool>(response);
+            }
+            return new ApiResponse<bool>(false);
         }
     }
 }

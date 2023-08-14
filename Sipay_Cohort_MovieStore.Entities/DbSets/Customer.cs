@@ -11,6 +11,8 @@ namespace Sipay_Cohort_MovieStore.Entities.DbSets
             FavoriteGenres = new List<Genre>();
             Purchaseds = new HashSet<Purchased>();
         }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public ICollection<Movie> Movies { get; set; }
         public List<Genre> FavoriteGenres { get; set; }
         public ICollection<Purchased> Purchaseds { get; set; }

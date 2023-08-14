@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Sipay_Cohort_MovieStore.Business.Services.Generic;
 using Sipay_Cohort_MovieStore.DataAccess.UnitOfWork;
 using Sipay_Cohort_MovieStore.Dtos.Movie;
@@ -13,7 +14,7 @@ namespace Sipay_Cohort_MovieStore.Business.Services.Movie
 {
     public class MovieService : GenericService<MovieModel.Movie, MovieRequest, MovieResponse>, IMovieService
     {
-        public MovieService(IUow uow, IMapper mapper) : base(uow, mapper)
+        public MovieService(IUow uow, IMapper mapper,IValidator<MovieRequest> validator) : base(uow, mapper, validator)
         {
         }
     }

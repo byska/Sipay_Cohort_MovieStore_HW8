@@ -58,6 +58,29 @@ namespace Sipay_Cohort_MovieStore.DataAccess.DataAccess.Concrete
             return Update(entity);
         }
 
+        public async Task<T> GetByDefault(params Expression<Func<T, bool>>[] exps)
+        {
+            IQueryable<T> query = _table.AsQueryable();
+
+            foreach (var exp in exps)
+            {
+                query = query.Where(exp);
+            }
+            return query.FirstOrDefault();
+        }
+        public async Task<IQueryable<T>> GetAllByParametersAsync(Expression<Func<T, object>> include, params Expression<Func<T, bool>>[] exps)
+        {
+
+            IQueryable<T> query = _table.AsQueryable();
+            query = query.Include(include);
+            foreach (var exp in exps)
+            {
+                query = query.Where(exp);
+            }
+
+            return query;
+        }
+
         public bool Remove(int id)
         {
             try
